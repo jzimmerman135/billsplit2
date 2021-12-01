@@ -14,6 +14,7 @@ Final project
 - Create groups page
   - view group balance, old receipts
   - create a new group
+- store receipt
 
 
 ## Database Info
@@ -26,9 +27,12 @@ What we will need to store:
   - things eaten
   - all groups they have shared with
 - Receipt info
+  - date-time
+  - receipt title
   - who it is shared between
     - usernames
     - first names
+    - initials
   - totals of how much is owed
   - who paid
   - list of items and names and prices and who it is shared by
