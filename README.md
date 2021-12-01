@@ -5,6 +5,9 @@ Final project
 - New user feedback form page
 - New how to use page
 - Sign in page
+  - log in page
+  - sign up page
+  - cookies to remember user
 - Create database
   - MongoDB
   - determine what info is needed and how it will be stored
