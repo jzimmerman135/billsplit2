@@ -29,6 +29,7 @@ What we will need to store:
   - password
   - things eaten
   - all groups they have shared with
+  - all receipts they have used
 - Receipt info
   - date-time
   - receipt title
