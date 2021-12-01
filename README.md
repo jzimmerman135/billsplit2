@@ -19,6 +19,9 @@ Final project
 
 ## Database Info
 What we will need to store:
+- All users
+  - username
+  - password
 - User information
   - email/username
   - first name
