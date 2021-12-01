@@ -15,7 +15,10 @@ Final project
   - view group balance, old receipts
   - create a new group
 - store receipt
-
+- javascript code
+  - populate receipt function
+  - go back function
+  - 'all - b' shared by input
 
 ## Database Info
 What we will need to store:
