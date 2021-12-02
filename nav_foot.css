@@ -136,6 +136,7 @@ nav span {
 }
 
 .hamburger {
+    font-size: 35px;
     cursor: pointer;
     display: block;
     text-decoration-style: none;
