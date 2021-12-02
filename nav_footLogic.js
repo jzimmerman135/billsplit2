@@ -43,9 +43,11 @@
     //immediately closes the menu
     function forceClose() {
         document.getElementsByClassName("hamburger")[0].onmouseover = "null";
+        document.getElementsByClassName("hamburger")[0].onclick = "null";
         document.getElementById("dropMenu").style.transform = "translateX(110%)";
         setTimeout(() => {
             document.getElementsByClassName("hamburger")[0].onmouseover = openNav;
+            document.getElementsByClassName("hamburger")[0].onclick = toggleNav;
         }, holdLength);
     }
     
