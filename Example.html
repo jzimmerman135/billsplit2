@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <script src="dropdownLogic.js"></script> 
 
-    <!-- NAVBAR STYLE -->
+    <!-- NAVBAR INFO -->
     <link rel="stylesheet" href="nav_foot.css">
-
-    <!-- NAVBAR OVERLAY SCRIPT -->
-    <script> var guestUser = true; </script>
-    <script src="dropdownlogic.js"></script>
+    
+    <!-- just for testing, final should not include -->
+    
+    
 
     <title>Billsplit Example</title>
     <style>
@@ -54,20 +53,11 @@
                 <li class="navItem user" name="userItem" ><a href="logOut.html">Log Out</a></li>
             </ul>
         </div>
-        <script>
-            if (guestUser){
-                var x = document.getElementsByName("userItem");
-                for (let i=0; i < x.length; i++){
-                    x[i].style.display = "none";
-                }
-            }
-            else {
-                var x = document.getElementsByName("guestItem");
-                for (let i=0; i < x.length; i++){
-                    x[i].style.display = "none";
-                }
-            }
-        </script>
+
+        <!-- THIS SHOULD BE A LINK TO A SCRIPT THAT DETERMINES FROM COOKIES IF USER IS A GUEST
+                Note: must use a bool var called guestUser -->
+        <script> var guestUser = false; </script>
+        <script src="nav_footLogic.js"></script>
 
         <!-- ALL PAGE CONTENT HERE -->
         <div class="container" style ="margin-top: 2.5rem;">
