@@ -39,16 +39,16 @@
 
     //immediately closes the menu
     function forceClose() {
+        hideNav();
         let hamburger = document.getElementsByClassName("hamburger")[0];
         hamburger.onmouseover = "null"; 
         hamburger.onclick = "null"; //disable open events
         hamburger.onmouseout = function() {
-            hideNav();
             setTimeout(() => {
                 hamburger.onmouseover = openNav;
                 hamburger.onclick = toggleNav;
                 hamburger.onmouseout = closeNav;
-            }, holdLength); 
+            }, 250); 
         };
     }
     
