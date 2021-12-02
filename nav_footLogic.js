@@ -1,6 +1,3 @@
-
-    
-
     /*****************************************
         GUEST OR REPEAT USER FUNCTIONALITY
     ******************************************/
@@ -46,6 +43,9 @@
         document.getElementsByClassName("hamburger")[0].onclick = "null";
         document.getElementById("dropMenu").style.transform = "translateX(110%)";
         setTimeout(() => {
+            document.getElementById("dropdown").style.transform = "translateX(100%)";
+        }, 500);
+        setTimeout(() => {
             document.getElementsByClassName("hamburger")[0].onmouseover = openNav;
             document.getElementsByClassName("hamburger")[0].onclick = toggleNav;
         }, holdLength);
@@ -55,6 +55,7 @@
     function openNav() {
         cancelClose();
         document.getElementById("dropMenu").style.transform = "translateX(0%)";
+        document.getElementById("dropdown").style.transform = "translateX(0%)";
     }
 
     //waits 0.75s to close menu when mouse leaves
@@ -63,6 +64,9 @@
         closeTimer = setTimeout(() => {
             if (!holdOpen){
                 document.getElementById("dropMenu").style.transform = "translateX(110%)";
+                setTimeout(() => {
+                    document.getElementById("dropdown").style.transform = "translateX(100%)";
+                }, 500);
             }
         }, holdLength);
     }
