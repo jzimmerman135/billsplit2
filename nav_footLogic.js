@@ -39,40 +39,44 @@
 
     //immediately closes the menu
     function forceClose() {
-        document.getElementsByClassName("hamburger")[0].onmouseover = "null";
-        document.getElementsByClassName("hamburger")[0].onclick = "null";
-        document.getElementById("dropMenu").style.transform = "translateX(110%)";
-        setTimeout(() => {
-            document.getElementById("dropdown").style.transform = "translateX(100%)";
-        }, 500);
-        setTimeout(() => {
-            document.getElementsByClassName("hamburger")[0].onmouseover = openNav;
-            document.getElementsByClassName("hamburger")[0].onclick = toggleNav;
-        }, holdLength);
+        let hamburger = document.getElementsByClassName("hamburger")[0];
+        hamburger.onmouseover = "null"; 
+        hamburger.onclick = "null"; //disable open events
+        hamburger.onmouseout = function() {
+            hideNav();
+            setTimeout(() => {
+                hamburger.onmouseover = openNav;
+                hamburger.onclick = toggleNav;
+                hamburger.onmouseout = closeNav;
+            }, holdLength); 
+        };
     }
     
     //opens the menu on hover
     function openNav() {
         cancelClose();
-        document.getElementById("dropMenu").style.transform = "translateX(0%)";
-        document.getElementById("dropdown").style.transform = "translateX(0%)";
+        showNav();
     }
 
     //waits 0.75s to close menu when mouse leaves
-    var closeTimer;
+    var hideTimer;
     function closeNav() {
-        closeTimer = setTimeout(() => {
+        hideTimer = setTimeout(() => {
             if (!holdOpen){
-                document.getElementById("dropMenu").style.transform = "translateX(110%)";
-                setTimeout(() => {
-                    document.getElementById("dropdown").style.transform = "translateX(100%)";
-                }, 500);
+                hideNav();
             }
         }, holdLength);
     }
 
     //clear the close process if re-enters an menu open area
     function cancelClose(){
-        clearTimeout(closeTimer);
+        clearTimeout(hideTimer);
     }
     
+    function hideNav() {
+        document.getElementById("dropMenu").style.transform = "translateX(110%)";
+    }
+
+    function showNav() {
+        document.getElementById("dropMenu").style.transform = "translateX(0%)";        
+    }

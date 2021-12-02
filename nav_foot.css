@@ -158,23 +158,14 @@ nav span {
 /* DROPDOWN MENU STYLE */
 /* ******************** */
 
-#dropdown {
-    margin-top: 2.5rem;
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    display: flex;
-    margin-left: auto;
-    transform: translateX(100%);
-    opacity: 1;
-}
-
 #dropdown ul {
+    position: fixed;
+    margin-top: 2.5rem;
     background-color: var(--bg_accent_light);
     width: 14ch;
     z-index: 1;
     display: flex;
-    margin-left: auto;
+    margin-left: calc(100% - 14ch);
     flex-direction: column;
     font-family: "Roboto Slab";
     color: var(--text_light);
@@ -232,12 +223,10 @@ nav span {
         margin-left: auto;
     }
 
-    #dropdown {
-        height: calc(100% - 2.5rem);
-    }
-
     #dropdown ul {
+        height: calc(100% - 2.5rem);
         width: 100%;
+        margin-left: 0;
         opacity: 0.95;
     }
 
