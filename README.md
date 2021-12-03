@@ -52,19 +52,19 @@ What we will need to store:
  
 ```
 {
-	"items": [
+	"receipt": [
 	  	{
-			"name": "eggs",
+			"item": "eggs",
 			"price": 2.50,
 			"sharedBy": ["Jacob", "Eddy", "Kev", "Adnan"]
 		},
 		{
-			"name": "butter",
+			"item": "butter",
 			"price": 4,
 			"sharedBy": ["Kev", "Adnan"]
 		},
 		{
-			"name": "chicken",
+			"item": "chicken",
 			"price": 12.50,
 			"sharedBy": ["Jacob", "Kev", "Adnan"]
 		}
