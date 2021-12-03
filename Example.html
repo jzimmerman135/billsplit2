@@ -41,7 +41,7 @@
         <div id="dropdown">
             <ul id="dropMenu" onclick="toggleNav()" onmouseover="openNav()" onmouseout="closeNav()">
                 <li class="navItem attention"><a href="fullCalculator.html">Split a Receipt</a></li>
-                <li class="navItem signIn" name="guestItem"><a href="fullCalculator.html">Sign In</a></li>
+                <li class="navItem signIn" name="guestItem"><a href="signIn.html">Sign In</a></li>
                 <li class="navItem user" name="userItem" ><a href="history.html">My History</a></li>
                 <li class="navItem"><a href="howto.html">How to use</a></li>
                 <li class="navItem"><a href="aboutUs.html">About</a></li>
@@ -49,11 +49,6 @@
                 <li class="navItem user" name="userItem" ><a href="logOut.html">Log Out</a></li>
             </ul>
         </div>
-
-        <!-- THIS SHOULD BE A LINK TO A SCRIPT THAT DETERMINES FROM COOKIES IF USER IS A GUEST
-                Note: must use a bool var called guestUser -->
-        <script src="guestUserLogic.js"></script>
-        <script src="nav_footLogic.js"></script>
 
         <!-- ALL PAGE CONTENT HERE -->
         <div class="container" style ="margin-top: 2.5rem;">
@@ -78,11 +73,18 @@
     </div>
     
 </body> 
+     <!-- Function files -->
+    <script src="guestUserLogic.js"></script>
+    <script src="nav_footLogic.js"></script>
     <script>
-        // add any functions here or ideally use a separate js document
+        var username = getUsername(true);
+        var guestUser = isUserGuest(username);
+        updateNavItems(guestUser);
+        var holdOpen = false; //drop menu variables
+        var holdLength = 750;
+        var hideTimer;
+
+        // add any function calls or global variables here
     </script>
     
-       
-    
-
 </html>

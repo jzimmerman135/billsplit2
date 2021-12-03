@@ -1,0 +1,500 @@
+:root{
+    --bg_main: #ffffff;
+    --bg_offwhite: #f5f5f5;
+    --text_main: rgb(63, 63, 62);
+    --bg_accent: #5CDB95;
+    --text_light: #EDF5E1;
+    --text_dark: #05386B;
+    --bg_accent_light: #8EE4AF;
+    --text_dark_low_opacity: rgba(5, 56, 107, 0.5);
+    --bg_purple: rgb(84, 78, 213);
+    font-family: "Roboto";
+}
+
+input {
+    font-size: 18px;
+    font-family: "roboto";
+    width: 7em;
+}
+
+#fullReceipt{
+    font-size: 22px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0em;
+    width: 95%;
+    border: 1px solid;
+    align-items: center;
+    background-color: var(--bg_main);
+    opacity: 0.9;
+    border-radius: 0.3em;
+}
+
+.container {
+    font-size: 22px;
+    font-size: 20px;
+    background-color: var(--bg_offwhite);
+}
+
+.subcontainer {
+    font-size: 22px;
+    background-color: var(--bg_main);
+    margin: 1em;
+    min-height: 90vh;
+    box-shadow: 0px 0px 3px 3px rgba(5, 56, 107, 0.1);
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#welcome {
+    font-family: "Roboto Slab";
+    opacity: 0.8;
+    color: var(--text_dark);
+    text-align: center;
+    transition: 0.3s;
+}
+
+#welcomeSub {
+    width: 80%;
+    max-width: 40ch;
+    font-size: 20px;
+    padding: 2em;
+    padding-top: 1em;
+    opacity: 0.6;
+    text-align: center;
+}
+
+.namesInfo {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    min-width: 400px;
+}
+.namesTitle {
+    font-size: 22px;
+    display: flex;
+    justify-content: space-around;
+}
+.namesHeader {
+    font-size: 22px;
+    margin-top: 0.8em;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#namesHRow {
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.2em;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--text_dark_low_opacity);
+}
+
+#initialsRow {
+    font-size: 22px;
+    display: flex;
+    margin: 0.2em;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.initials {
+    font-size: 22px;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: "Roboto";
+    padding: 0.15em 0.4em;
+    margin: 5px;
+    opacity: 0.8;
+    border-radius: 0.5em;
+    touch-action: manipulation;
+}
+
+
+.receiptHeader{
+    font-size: 22px;
+    font-family: "Roboto Slab";
+    color:var(--text_dark);
+    display: flex;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    background: var(--bg_accent_light);
+    margin: 0em 2em;
+    list-style-type: none;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+}
+.receiptRow {
+    font-size: 22px;
+    text-align: center;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.items {
+    font-size: 22px;
+    width: 20%;
+    list-style-type: none;
+    align-items: center;
+    justify-content: left;
+    padding: 5px;
+    margin: 2.5px 5px;
+    touch-action: manipulation;
+}
+.prices {
+    font-size: 22px;
+    list-style-type: '$';
+    width: 15%;
+    align-items: center;
+    justify-content: left;
+    padding: 5px;
+    margin: 2.5px 5px;
+    touch-action: manipulation;
+}
+.sharedBy {
+    font-size: 22px;
+     width: 60%;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: left;
+     text-align: left;
+     touch-action: manipulation;
+ }
+ .names {
+    font-size: 22px;
+    font-size: 0.8em;
+    padding: 0.15em 0.25em;
+    margin: 2.5px 5px;
+    opacity: 0.9;
+    border-radius: 0.3em;
+    touch-action: manipulation;
+}
+
+.namesHRow .names {
+    font-size: 22px;
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+
+#inBar {
+    font-size: 22px;
+    justify-content: center;
+    font-family: "Roboto";
+    height: 2em;
+    width: 45vw;
+    font-size: 0.8em;
+    padding-left: 0.6em;
+    padding-right: 2.2em;
+    margin: 0.5em;
+    background-color: var(--bg_offwhite);
+    border-style: none;
+    border-radius: 0.25em;
+    box-shadow: 0px 0px 1px 1px rgba(5, 56, 107, 0.2);
+}
+
+#inMessage {
+    font-size: 22px;
+    opacity: 0.6;
+    font-size: 1em;
+    text-align: center;
+    margin-left: -2em;
+}   
+
+.inReg {
+    font-size: 22px;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: auto;
+}
+
+#inputReg {
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-radius: 0.3em;
+    width: 90%;
+    margin: 0.5em;
+    box-shadow: 0px 0px 1px 1px rgba(5, 56, 107, 0.1);
+    padding-top: 0.5em;
+}
+
+#finishButton {
+    opacity: 0.85;
+    font-size: 22px;
+    font-family: "Roboto Slab";
+    font-size: 0.8em;
+    height: fit-content;
+    padding: 0.2em 1.2em;
+    text-decoration: none;
+    background-color: rgb(39, 39, 172);
+    background-color: var(--text_dark);
+    color: var(--text_light);
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-radius: 0.8em;
+    border-style: solid;
+    border-color: var(--text_dark_low_opacity);
+    border-width: 2px;
+    transition: 0.3s;
+}
+
+#finishButton:hover {
+    background-color: rgb(88, 88, 249);
+}
+
+#finishButton:disabled {
+    opacity:0.4;
+    background-color: var(--text_dark);
+    color: var(--text_light);
+}
+
+#fButtonBox {
+    padding-top: 1.5em;
+    margin-right: auto;
+}
+
+#typeBar {
+    font-size: 22px;
+    display: flex;
+    flex-wrap: none;
+    flex-direction: row;
+}
+
+#submitInput {
+    font-size: 22px;
+    background: none;
+    margin-left: -2em;
+    margin-right: 2em;
+    border: none;
+    outline: none;
+    opacity: 0.54;
+    height: 1.3em;
+    width: 1.3em;
+    margin-top: 0.6em;
+    border-radius: 10em;
+    transition: 0.2s;
+}
+
+#submitInput:disabled {
+    opacity: 0.54;
+}
+
+#submitInput:enabled {
+    opacity: 0.9;
+}
+
+#submitInput:hover:enabled {
+    opacity: 1;
+}
+
+#submitInput:hover:enabled .material-icons.md-24 {
+    /* font-size: 1.35em; */
+    transform: scale(1.1);
+}
+
+.material-icons.md-24 { 
+    font-size: 22px;
+    font-size: 1.3em;
+    color: rgb(25, 71, 255);
+    transition: 0.2s;
+}
+
+.totalBar {
+    font-size: 22px;
+    width: 90%;
+    color: var(--text_dark);
+    font-family: "Roboto Slab";
+    margin-left: 10%;
+    padding: 0.4em;
+    display: flex;
+    flex-direction: row;
+    vertical-align: center;
+}
+
+#totalVal {
+    margin: 0;
+}
+
+#plusTax, #minusTax {
+    font-size: 18px;
+    width: 1.3em;
+    background: none;
+    color: var(--text_dark);
+    border-style: solid;
+    border-color: var(--text_dark);
+    border-width: 2px;
+    opacity: 0.54;
+    transition: 0.1s;
+    touch-action: manipulation;   
+}
+
+#plusTax:hover, #minusTax:hover {
+    opacity: 0.9;
+    transform: scaleX(1.1)
+}
+
+#tax {
+    margin-left: auto;
+    margin-right: 0.5em;
+}
+
+#plusTax {
+    margin-left: 0.5em;
+    margin-right: 10%;
+}
+
+#totalsRow {
+    font-size: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    justify-content: center;
+}
+
+.totals {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0.7em;
+}
+
+.totals .names {
+    font-size: 24px;
+    border: none;
+}
+
+.owes {
+    font-size: 20px;
+    color: var(--text_dark);
+    padding-left: 0.2em;
+}
+
+.names.payer {
+    transition: 0.3s;
+    border: 3px solid var(--text_dark);
+    font-size: 22px;
+    transform: scaleX(1.05);
+}
+
+@media screen and (max-width:600px) {
+    .subcontainer {
+        font-size: 18px;
+        margin: 0.5em;
+    }
+    .namesInfo {
+        font-size: 18px;
+        min-width: 80vw;
+    }
+    #inputReg {
+        font-size: 18px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .inReg {
+        font-size: 18px;
+        margin-left: 0;
+        justify-content: center;
+    }
+    #inMessage {
+        width: 100%;
+        margin-left: 0;
+    }
+    #inBar {
+        font-size: 18px;
+        width: 78vw;
+        margin-left: 1.1em;
+        height: 1.5em;
+        border-radius: 0.4em;
+    }
+    #fButtonBox {
+        font-size: 18px;
+        padding: 0;
+        margin: 0.5em;
+        margin-left: auto;
+        margin-right: 7vw;
+    }
+    #finishButton {
+        font-size: 14px;
+        min-width: 25vw;
+    }
+    #submitInput {
+        font-size: 18px;
+    }
+    #namesHRow .names {
+        font-size: 15px;
+    }
+    .initials {
+        font-size: 18px;
+        font-size: 0.9em;
+    }
+    .sharedBy, .prices, .items {
+        font-size: 14px;
+    }
+    .totalBar {
+        font-size: 14px;
+    }
+    #plusTax, #minusTax{
+        font-size: 14px;
+    }
+    input {
+        font-size: 14px;
+        width: 5em;
+    }
+    .totals .names {
+        font-size: 18px;
+    }
+    .owes {
+        font-size: 16px;
+    }
+    .names.payer {
+        font-size: 17px;
+    }
+    #welcome {
+        font-size: 22px;
+    }
+    #welcomeSub {
+        padding: 0.3em;
+        font-size: 16px;
+        width: 100%;
+    }
+    #fullReceipt .names {
+        margin: 0.15em;
+    }
+}
+
+.feedbackBar {
+    margin-left: auto;
+    margin-top: auto;
+    display: flex;
+}
+
+a.feedback {
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: 10px;
+    padding: 2em;
+    color: var(--text_dark);
+}
+
+a.feedback:hover {
+    font-weight: 600;
+    transform: perspective(40deg)
+}
