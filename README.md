@@ -73,30 +73,56 @@ What we will need to store:
 ```
 ###full example 
 ```
- {
+{
 	"id": "as8943nks01",
+	"title" : "trader joes groceries",
 	"date": "12/3/2021",
-	"users": ["jzimm135", "ehe340", "kev12", "guest"],
-	"names": ["Jacob", "Eddy", "Kev", "Adnan"],
-	"initials": ["j", "e", "k", "a"],
-	"payer": -1,
-	"tax": 5,
+	"people": [{
+			"username": "jzimm135",
+			"name": "Jacob",
+			"initial": "j",
+			"owes": 5.05
+		},
+		{
+			"username": "ehe340",
+			"name": "Eddy",
+			"initial": "e",
+			"owes": -19.37
+		},
+		{
+			"username": "kev12",
+			"name": "Kev",
+			"initial": "k",
+			"owes": 7.16
+		},
+		{
+			"username": "none",
+			"name": "Adnan",
+			"initial": "a",
+			"owes": 7.16
+		}
+	],
+	"tax": 5.25,
 	"subtotal": 19,
 	"total": 19.95,
+	"payer": 1,
 	"items": [{
 			"name": "eggs",
 			"price": 2.50,
-			"sharedBy": ["Jacob", "Eddy", "Kev", "Adnan"]
+			"sharedBy": ["Jacob", "Eddy", "Kev", "Adnan"],
+			"sharedByString": "jeka"
 		},
 		{
 			"name": "butter",
 			"price": 4,
-			"sharedBy": ["Kev", "Adnan"]
+			"sharedBy": ["Kev", "Adnan"],
+			"sharedByString": "ka"
 		},
 		{
 			"name": "chicken",
 			"price": 12.50,
-			"sharedBy": ["Jacob", "Kev", "Adnan"]
+			"sharedBy": ["Jacob", "Kev", "Adnan"],
+			"sharedByString": "jka"
 		}
 	]
 }
