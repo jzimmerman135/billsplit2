@@ -78,7 +78,7 @@ function getExampleReceipts(userName){
                 },
                 {
                     "username" : "kev12",
-                    "name" : "Kev",
+                    "name" : "Kevin",
                     "initial" : "k",
                     "owes" : 10.31
                 },
@@ -119,8 +119,12 @@ function getExampleReceipts(userName){
                 }
             ]
         };
+        let ex2 = JSON.stringify(ex_receipt1);
+        let ex_receipt2 = JSON.parse(ex2);
+        ex_receipt2.title = "bfresh";
         receipts.push(ex_receipt0);
         receipts.push(ex_receipt1);
+        receipts.push(ex_receipt2);
     }
     return receipts;
 }
@@ -139,18 +143,33 @@ function createReceiptList(receipts){
 //and the index of which receipt it is working on relative to the receipts array
 function addReceipt(receipt, index){
     let newReceipt = document.createElement("li"); 
-    let title = document.createElement("span"); 
+    let title = createReceiptTitle(receipt.title, "receiptTitle");
+    let date = createReceiptTitle(" on " + receipt.date, "receiptDate");
     let sharedDiv = document.createElement("div");
 
-    title.className = "receiptTitle"; //title related stuff
-    let tnode = document.createTextNode(receipt.title); //add title
-    title.appendChild(tnode);
-    newReceipt.appendChild(title);
-    tnode = document.createTextNode(" on " + receipt.date); //add date
-    newReceipt.appendChild(tnode);
     
+    newReceipt.appendChild(title);
+    newReceipt.appendChild(date);
+    displayReceiptNames(sharedDiv, receipt);
+    if (receipt.payer != -1){ //identify payer
+        highlightPayer(sharedDiv, receipt);
+    }
+    newReceipt.appendChild(sharedDiv);
+    newReceipt.onclick = () => { showFullReceipt(newReceipt); };
+    return newReceipt;
+};
+
+function createReceiptTitle(value, class_name){
+    let title = document.createElement("div");
+    title.className = class_name;
+    title.className = class_name; //title related stuff
+    let tnode = document.createTextNode(value); //add title
+    title.appendChild(tnode);
+    return title;
+}
+
+function displayReceiptNames(sharedDiv,receipt) {
     sharedDiv.className = "sharedBy"; //where 
-    sharedDiv.innerHTML = "with "
     for (let i=0; i < receipt.people.length; i++){ //add names
         let nameDiv = document.createElement("div");
         nameDiv.className = "names";
@@ -160,16 +179,39 @@ function addReceipt(receipt, index){
         nameDiv.appendChild(tnode);
         sharedDiv.appendChild(nameDiv);
     }
-    if (receipt.payer != -1){ //identify payer
-        let payerName = sharedDiv.getElementsByClassName("names")[receipt.payer];
-        payerName.className += " payer";
-        payerName.style.fontSize = "16px";
-    }
-    newReceipt.appendChild(sharedDiv);
-    newReceipt.onclick = () => { showFullReceipt(index); };
-    return newReceipt;
-};
+}
 
-function showFullReceipt(i){
-    console.log(receipts[i]);
+function highlightPayer(x, receipt) {
+    let payerName = x.getElementsByClassName("names")[receipt.payer];
+    payerName.className += " payer";
+    payerName.style.fontSize = "16px";
+}
+
+function showFullReceipt(x){
+    x.style.opacity = "0";
+}
+
+function populateReceipt(receipt){
+    clearArrayData();
+    for (let i = 0; i < receipt.people.length; i++){
+        names[i] = receipt.people[i].name;
+        initials[i] = receipt.people[i].initial;
+    }
+    let static = true;
+    for (let i = 0; i < receipt.items.length; i++){
+        items[i] = receipt.items[i].name;
+        display(receipt.items[i].name,"items", static); //not editable
+        prices[i] = receipt.items[i].price;
+        display(prices[i].toString(),"prices", static); //not editable
+        sharedBy[i] = receipt.items[i].sharedByString;
+        displaySharedBy(sharedBy[i], static); //not editable
+    }
+}
+
+function clearArrayData(){
+    names = [];
+    initials = [];
+    items = [];
+    prices = [];
+    sharedBy = [];
 }

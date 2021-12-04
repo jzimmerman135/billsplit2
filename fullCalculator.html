@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <!-- NAVBAR STYLE -->
-    <link rel="stylesheet" href="calculator_style.css">
-    <link rel="stylesheet" href="nav_foot.css">  
-    <link rel="stylesheet" href="history.css">
-    <title>My Receipts</title>
-    <style>
-        
-    </style>
 
+    <!-- NAVBAR STYLE -->
+    <link rel="stylesheet" href="nav_foot.css">  
+    <link rel="stylesheet" href="calculator_style.css">
+    <title>Billsplit Example</title>
+    <style>
+        /* Style for each page */
+    </style>
+    
 </head>
     
 <body>
@@ -51,22 +52,55 @@
         </div>
 
         <!-- ALL PAGE CONTENT HERE -->
-        <div class="container">
-            <h1>Previous Receipts</h1>
-            <div class="slider">
-                <div class="prevReceipts">
-                    <ul id="receiptList">
-                    </ul>
-                </div>
-                <div class="receiptSlide">
-                    <div id="fullReceipt">
-                        <div class="receiptHeader">
-                            <li class="items">Item</li>
-                            <li class="prices" style="list-style-type: none; padding-left:0.8rem">Price</li>
-                            <li class="sharedBy" style="margin-left: 3em;">Shared By</li>
+        <div class="container" style ="margin-top: 2.5rem;">
+            <div class="subcontainer">
+                <div class=namesInfo>
+                    <span class=namesHeader>
+                        <div id="namesHRow" class="namesHRow">
+                            <h2 id="welcome">Welcome to the Billsplit Receipt Calculator</h2>
                         </div>
+                        <div id="initialsRow">
+                            <h3 id="welcomeSub">Enter names until everyone is accounted for, then hit finish to move on.
+                                <br/><br/>When prompted, enter the name, prices and initials of those sharing each item on your receipt.
+                                
+                            </h3>
+                        </div>
+                    </span>
+                </div>
+            
+                <div id="fullReceipt">
+                    <div class="receiptHeader">
+                        <li class="items">Item</li>
+                        <li class="prices" style="list-style-type: none; padding-left:0.8rem">Price</li>
+                        <li class="sharedBy" style="margin-left: 3em;">Shared By</li>
                     </div>
                 </div>
+                <div class="totalBar" style="display: none">Total:  $
+                    <div id="totalVal">0</div>
+                    <div id="tax">Tax:  6.25%</div>
+                    <button id="minusTax" onmousedown="minusTax()">-</button>
+                    <button id="plusTax" onmousedown="addTax()">+</button>
+                </div>
+                <div id="inputReg">
+                    <span class="inReg">
+                        <div id="inMessage" class="inputMsg">Enter the first person</div>
+                        <span id="typeBar">
+                            <input type="text" id="inBar" size="50" placeholder="Use 'enter' key to submit" onkeydown="enterName(event)" oninput= "updateSubmit()">
+                            <button id="submitInput" onclick="getName()">
+                                <span class="material-icons md-24">arrow_circle_right</span>
+                            </button>
+                        </span>
+                    </span>
+                    <span id="fButtonBox">
+                        <button id="finishButton" onclick="finishNames()">Finish</button>  
+                    </span>
+                </div>
+                <span id="totalsRow">
+                    
+                </span>
+                <div class="feedbackBar">
+                    <a class="feedback" href="feedback.html">Provide Feedback?</a>
+                </div> 
             </div>
         </div>
     
@@ -84,11 +118,10 @@
     </div>
     
 </body> 
-    <!-- Function files -->
-    <script src="historyBackend.js"></script>
-    <script src="calculatorBackend.js"></script>
+     <!-- Function files -->
     <script src="guestUserLogic.js"></script>
-    <script src="nav_footLogic.js"></script> 
+    <script src="nav_footLogic.js"></script>
+    <script src="calculatorBackend.js"></script>
     <script>
         var username = getUsername(true);
         var guestUser = isUserGuest(username);
@@ -98,8 +131,9 @@
         var hideTimer;
 
         var nameColors = ["#add45c","#6AD2FF","#F6E65E","#28E1D4",
-                          "#ff5732","#d478FD","#7883fd","#FFAD37",
-                          "#F31656"];
+                  "#ff5732","#d478FD","#7883fd","#FFAD37",
+                  "#F31656"];
+        var promptCount = 0;
         var names = [];
         var initials = [];
         var items = [];
@@ -109,8 +143,8 @@
         var totals = [];
         var payer = -1;
 
-        var receipts = getExampleReceipts(username);
-        createReceiptList(receipts);
-        populateReceipt(receipts[1]);
-    </script>        
+        document.getElementById("submitInput").disabled = true;
+        // add any function calls or global variables here
+    </script>
+    
 </html>

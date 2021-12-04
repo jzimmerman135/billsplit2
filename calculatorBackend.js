@@ -114,9 +114,14 @@ function setFinalReceipt(){
         finalItems[i].ontouchend = "none";
         finalPrices[i].ontouchend = "none";
         finalSharedBy[i].ontouchend = "none";
-        document.getElementById("minusTax").onmousedown = "none"
-        document.getElementById("plusTax").onmousedown = "none"
     }
+}
+
+function setFinalTax(){
+    document.getElementById("minusTax").onmousedown = "none";
+    document.getElementById("plusTax").onmousedown = "none";
+    document.getElementById("plusTax").style.visibility = "hidden";
+    document.getElementById("minusTax").style.visibility = "hidden";
 }
 
 function promptFor(type){
@@ -220,7 +225,7 @@ function getInput(){
     }
 }
 
-function display(value, type){
+function display(value, type, static){
     document.getElementById("fullReceipt").style.display = "flex";
     let location = createLocation(type);
     const para = document.createElement("li");
@@ -228,8 +233,10 @@ function display(value, type){
     para.className = type;
     const tnode = document.createTextNode(value);
     para.appendChild(tnode);
-    para.ondblclick = function() {editItem(location)};
-    para.ontouchend = function() {editOnDoubleTap(location);}
+    if (typeof static === "undefined"){
+        para.ondblclick = function() {editItem(location)};
+        para.ontouchend = function() {editOnDoubleTap(location);}
+    }
     if (type == "items"){
         const element = document.createElement("div");
         element.className = "receiptRow";
@@ -505,13 +512,15 @@ function editSharedBy(id){
     }
 }
 
-function displaySharedBy(initList) {
+function displaySharedBy(initList, static) {
     let row = document.createElement("li");
     row.className = "sharedBy";
     let location = "sharedBy" + items.length.toString();
     row.id = location;
-    row.ondblclick = function() {editSharedBy(location);}
-    row.ontouchend = function() {editOnDoubleTap(location);}
+    if (typeof static === "undefined"){
+        row.ondblclick = function() {editSharedBy(location);}
+        row.ontouchend = function() {editOnDoubleTap(location);}
+    }
     document.getElementById(createLocation("receiptRow")).appendChild(row);
     for (let i = 0; i < initList.length; i++) {
         let name = names[initials.indexOf(initList[i])];
@@ -521,10 +530,9 @@ function displaySharedBy(initList) {
 
 function finishCalculator(){
     setFinalReceipt();
+    setFinalTax();
     document.getElementById("typeBar").style.display = "none";
     document.getElementById("fButtonBox").style.display = "none";
-    document.getElementById("plusTax").style.visibility = "hidden";
-    document.getElementById("minusTax").style.visibility = "hidden";
     updateMessage("Click on whoever is paying");
     document.getElementsByClassName("inReg")[0].style.margin = "0.5em";
     calculateTotals();
