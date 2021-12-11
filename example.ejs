@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <%- include('../partials/_header') %>
+    <title>Billsplit - Example</title>
+    <!-- LINKS TO EXTERNAL STYLESHEETS
+            format: rel="/stylesheets/example.css" -->
+    <style>
+        /* page specific style declarations */
+    </style>
+    
+</head>
+    
+<body>
+    <div id="pageContainer">
+        <!-- HEADER STUFF, CAN IGNORE -->
+        <%- include('../partials/_nav') %>
+
+        <!-- ALL PAGE CONTENT INSIDE HERE -->
+        <div class="container" style ="margin-top: 2.5rem;">
+        </div>       
+        
+        <!-- FOOTER CAN IGNORE -->
+        <%- include('../partials/_footer') %>
+    </div>
+    
+</body> 
+    <!-- get username information, sorry it's named guestUser
+            gives access to set and delete username functions -->
+    <%- include('../partials/_guestUser') %>
+
+    <!-- LINKS TO EXTERNAL FUNCTION SCRIPTS
+         format: src"/scripts/example.js" --> 
+    
+    <!-- Page Executable -->
+    <script>
+    </script>
+       
+    
+
+</html>
